@@ -76,8 +76,15 @@ def serve_signup():
 # =================================================
 # Database
 # =================================================
+#engine = create_engine(
+#    "mysql+mysqlconnector://root:romaan665@localhost/neet_counselling",
+#    pool_pre_ping=True
+#)
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
 engine = create_engine(
-    "mysql+mysqlconnector://root:romaan665@localhost/neet_counselling",
+    DATABASE_URL,
     pool_pre_ping=True
 )
 
