@@ -1,0 +1,79 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from xgboost import XGBRegressor
+import joblib
+
+# -------------------------------
+# LOAD DATA FROM MYSQL
+# -------------------------------
+from sqlalchemy import create_engine
+
+engine = create_engine(
+    "mysql+mysqlconnector://root:romaan665@localhost/neet_counselling",
+    pool_pre_ping=True
+)
+query = "SELECT YEAR, ROUND, QUOTA, college_id, COURSE, CATEGORY, STATE, AIR_RANK FROM cuttoff"
+df = pd.read_sql(query, engine)
+
+# -------------------------------
+# CLEAN DATA
+# -------------------------------
+df = df.dropna()
+
+# -------------------------------
+# FEATURES & TARGET
+# -------------------------------
+features = [
+    "YEAR",
+    "ROUND",
+    "QUOTA",
+    "college_id",
+    "COURSE",
+    "CATEGORY",
+    "STATE"
+]
+
+target = "AIR_RANK"
+
+# -------------------------------
+# ENCODE CATEGORICAL DATA
+# -------------------------------
+encoders = {}
+
+for col in ["QUOTA", "college_id", "COURSE", "CATEGORY", "STATE"]:
+    le = LabelEncoder()
+    df[col] = le.fit_transform(df[col])
+    encoders[col] = le
+
+# -------------------------------
+# TRAIN TEST SPLIT
+# -------------------------------
+X = df[features]
+y = df[target]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# -------------------------------
+# MODEL
+# -------------------------------
+model = XGBRegressor(
+    n_estimators=400,
+    learning_rate=0.05,
+    max_depth=6,
+    subsample=0.8,
+    colsample_bytree=0.8,
+    random_state=42
+)
+
+model.fit(X_train, y_train)
+
+# -------------------------------
+# SAVE MODEL + ENCODERS
+# -------------------------------
+joblib.dump(model, "neet_model.pkl")
+joblib.dump(encoders, "encoders.pkl")
+
+print("✅ Model trained and saved successfully!")

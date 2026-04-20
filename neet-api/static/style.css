@@ -1,0 +1,146 @@
+/* --------------------------
+   NAVIGATION
+--------------------------- */
+
+/* Active nav link for current page */
+.nav-link.active {
+  color: #10b981 !important;              /* emerald-500 */
+  border-bottom: 3px solid #10b981;
+}
+
+/* Slight hover underline for all nav links */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #10b981;
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* --------------------------
+   HOME PAGE – RESULTS
+--------------------------- */
+
+/* Reveal animation for results section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#resultsSection {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* College cards used in results lists */
+.college-card {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-left-width: 4px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15); /* slate-900 */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease;
+}
+
+.college-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+  background: rgba(255, 255, 255, 1);
+}
+
+/* Scrollable lists for long results */
+#round1List,
+#round2List,
+#round3List,
+#noChanceList {
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Webkit scrollbar styling (Chrome/Edge/Opera) */
+#round1List::-webkit-scrollbar,
+#round2List::-webkit-scrollbar,
+#round3List::-webkit-scrollbar,
+#noChanceList::-webkit-scrollbar {
+  width: 6px;
+}
+
+#round1List::-webkit-scrollbar-track,
+#round2List::-webkit-scrollbar-track,
+#round3List::-webkit-scrollbar-track,
+#noChanceList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#round1List::-webkit-scrollbar-thumb,
+#round2List::-webkit-scrollbar-thumb,
+#round3List::-webkit-scrollbar-thumb,
+#noChanceList::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.8); /* slate-400 */
+  border-radius: 999px;
+}
+
+/* --------------------------
+   FORMS (contact / feedback)
+--------------------------- */
+
+/* Make textareas resize only vertically */
+textarea {
+  resize: vertical;
+}
+
+/* --------------------------
+   RATING STARS (feedback)
+--------------------------- */
+
+.rating-star {
+  transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.rating-star:hover {
+  transform: scale(1.1);
+}
+
+/* --------------------------
+   DARK MODE SMALL TWEAKS
+--------------------------- */
+
+/* When html has .dark, slightly dim scrollbars on dark backgrounds */
+html.dark #round1List::-webkit-scrollbar-thumb,
+html.dark #round2List::-webkit-scrollbar-thumb,
+html.dark #round3List::-webkit-scrollbar-thumb,
+html.dark #noChanceList::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.6);
+}
+
+/* --------------------------
+   RESPONSIVE TWEAKS
+--------------------------- */
+
+@media (max-width: 640px) {
+  /* Slightly tighter spacing in navbar on mobile */
+  nav .space-x-4 > * + * {
+    margin-left: 0.5rem;
+  }
+
+  .college-card {
+    padding: 1rem 1.1rem;
+  }
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About – NEET College Predictor 2025</title>
+
+  <!-- Tailwind + config for dark mode -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+
+  <!-- Icons + custom CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+
+
+  <style>
+    .bg-blur-card {
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+  </style>
+</head>
+
+<body class="relative min-h-screen dark:bg-black">
+
+  <!-- full-page background image + soft gradient overlay -->
+  <div class="absolute inset-0 -z-20">
+    <div class="w-full h-full bg-cover bg-center bg-photo-dark"
+         style="background-image: url('https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg');">
+    </div>
+    <div class="w-full h-full bg-gradient-to-br 
+                from-indigo-50/90 via-blue-50/90 to-emerald-50/90
+                dark:from-gray-950/95 dark:via-slate-950/95 dark:to-black/95"></div>
+  </div>
+
+  <!-- soft background blobs -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden -z-10">
+    <div class="absolute -top-24 -left-10 w-72 h-72 rounded-full bg-emerald-300/30 blur-3xl"></div>
+    <div class="absolute top-40 -right-16 w-80 h-80 rounded-full bg-sky-300/25 blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/3 w-72 h-72 rounded-full bg-purple-300/20 blur-3xl"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="relative z-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-lg border-b border-gray-200/60 dark:border-slate-700">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 flex items-center justify-center shadow-md">
+          <i class="fas fa-stethoscope text-white text-sm"></i>
+        </div>
+        <span class="text-xl md:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+          NEET Predictor
+        </span>
+      </div>
+      <div class="space-x-3 text-sm md:text-base flex items-center">
+        <a href="/static/index.html" class="nav-link px-3 py-1.5 rounded-xl text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 dark:text-gray-200 dark:hover:bg-emerald-500/10 font-semibold transition">
+          Home
+        </a>
+        <a href="/static/about.html" class="nav-link px-3 py-1.5 rounded-xl text-emerald-600 bg-emerald-50 dark:text-emerald-300 dark:bg-emerald-500/10 font-semibold transition">
+          About<link rel="stylesheet" href="/static/style.css">
+
+
+        </a>
+        <a href="/static/how-to-use.html" class="nav-link px-3 py-1.5 rounded-xl text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 dark:text-gray-200 dark:hover:bg-emerald-500/10 font-semibold transition">
+          How to Use
+        </a>
+        <a href="/static/contact.html" class="nav-link px-3 py-1.5 rounded-xl text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 dark:text-gray-200 dark:hover:bg-emerald-500/10 font-semibold transition">
+          Contact
+        </a>
+        <a href="/static/feedback.html" class="nav-link px-3 py-1.5 rounded-xl text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 dark:text-gray-200 dark:hover:bg-emerald-500/10 font-semibold transition">
+          Feedback
+        </a>
+
+        <a href="/static/login.html"  id="navLogin"
+           class="text-gray-700 hover:text-emerald-600 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-slate-800 font-semibold px-3 py-1.5 rounded-xl transition">
+          Login
+        </a>
+        <a href="/static/signup.html" id="navSignup"
+           class="text-white bg-emerald-500 hover:bg-emerald-600 font-semibold px-4 py-1.5 rounded-full shadow-md transition">
+          Sign up
+        </a>
+
+        <span id="navUser"
+              class="hidden text-gray-700 dark:text-gray-100 font-semibold px-3 py-1.5 rounded-xl bg-gray-100 dark:bg-slate-800"></span>
+        <button id="navLogout"
+                class="hidden text-red-500 font-semibold border border-red-400 px-3 py-1.5 rounded-xl hover:bg-red-50 dark:hover:bg-red-500/10 transition">
+          Logout
+        </button>
+
+        <button id="themeToggle"
+                class="relative inline-flex items-center h-7 w-14 rounded-full border border-gray-300 bg-gray-100 dark:bg-slate-700 dark:border-slate-500 transition-colors">
+          <span class="sr-only">Toggle theme</span>
+          <span id="themeIcon"
+                class="inline-flex items-center justify-center h-5 w-5 rounded-full bg-white dark:bg-slate-200 shadow transform translate-x-1 dark:translate-x-8 transition-transform text-[11px]">
+            ☀
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="relative z-10 pt-20 pb-16">
+    <div class="max-w-5xl mx-auto px-4 space-y-8">
+
+      <!-- Intro card -->
+      <section class="bg-white/90 dark:bg-slate-900/95 dark:text-gray-100 bg-blur-card rounded-3xl shadow-2xl p-8 md:p-10 border border-white/50 dark:border-slate-700">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+          <div class="flex items-center">
+            <div class="h-11 w-11 rounded-2xl bg-emerald-500/90 flex items-center justify-center mr-3 shadow-lg">
+              <i class="fas fa-info-circle text-white text-xl"></i>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100">
+              About NEET College Predictor
+            </h1>
+          </div>
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs md:text-sm font-semibold dark:bg-emerald-500/15 dark:text-emerald-300">
+            <i class="fas fa-bolt mr-1.5"></i> Rank-based counselling helper
+          </span>
+        </div>
+
+        <p class="text-gray-700 dark:text-gray-200 mb-3">
+          NEET College Predictor is designed to make counselling planning simpler for MBBS, BDS and Nursing aspirants. By combining your All India Rank with your category, quota, state and course preference, it gives a structured view of colleges that are realistically within reach.
+        </p>
+
+        <p class="text-gray-700 dark:text-gray-200">
+          Instead of manually checking multiple PDF cut‑off lists and counselling notices, you get a focused, round‑wise list of colleges so you can spend more time planning and less time searching.
+        </p>
+      </section>
+
+      <!-- Two-column details -->
+      <section class="grid md:grid-cols-2 gap-6">
+        <!-- What this tool does -->
+        <div class="bg-white/90 dark:bg-slate-900/95 bg-blur-card rounded-3xl shadow-xl p-6 border border-white/40 dark:border-slate-700">
+          <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3 flex items-center">
+            <i class="fas fa-chart-line text-emerald-500 mr-2"></i>
+            What this tool does
+          </h2>
+          <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-200 text-sm md:text-base">
+            <li>Shows colleges where admission is highly likely in Round 1 based on past closing ranks.</li>
+            <li>Highlights colleges that may open up in Round 2 and Round 3 so you can plan backups.</li>
+            <li>Marks colleges that are very difficult to get with your current rank, helping you avoid unrealistic choices.</li>
+          </ul>
+        </div>
+
+        <!-- How it works (high level) -->
+        <div class="bg-white/90 dark:bg-slate-900/95 bg-blur-card rounded-3xl shadow-xl p-6 border border-white/40 dark:border-slate-700">
+          <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3 flex items-center">
+            <i class="fas fa-brain text-blue-500 mr-2"></i>
+            How it works
+          </h2>
+          <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-200 text-sm md:text-base">
+            <li>Uses last 5 years of official NEET counselling closing ranks for multiple rounds and quotas.</li>
+            <li>Applies rank‑based rules and patterns to estimate your chances for different college–course combinations.</li>
+            <li>Groups results into “High chance”, “Possible later rounds” and “Very unlikely” for quick understanding.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Small note card -->
+      <section class="bg-amber-50/90 dark:bg-amber-900/20 rounded-3xl shadow-xl p-6 md:p-7 border border-amber-200/70 dark:border-amber-700/60">
+        <h2 class="text-xl font-semibold text-amber-900 dark:text-amber-200 mb-3 flex items-center">
+          <i class="fas fa-exclamation-triangle mr-2"></i>
+          Important note
+        </h2>
+        <p class="text-sm md:text-base text-amber-900/90 dark:text-amber-100">
+          NEET College Predictor is an assistance tool based on historical data, not an official counselling platform. Cut‑offs and rules change every year, so always confirm details from NMC, MCC, state counselling authorities and official college websites before taking final decisions.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 bg-gradient-to-r from-gray-900 to-slate-900 text-white py-12 mt-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <div class="flex justify-center items-center mb-6">
+        <i class="fas fa-stethoscope text-3xl text-emerald-400 mr-3"></i>
+        <span class="text-2xl font-bold">NEET College Predictor 2025</span>
+      </div>
+      <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+        Helping NEET aspirants make smarter, data‑driven counselling choices. Always verify information from official counselling authorities.
+      </p>
+      <div class="flex justify-center space-x-6 text-gray-400">
+        <a href="/static/index.html" class="hover:text-emerald-400 transition-colors"><i class="fas fa-home text-xl"></i></a>
+        <a href="/static/contact.html" class="hover:text-emerald-400 transition-colors"><i class="fas fa-envelope text-xl"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="/static/script.js"></script>
+
+</body>
+</html>
