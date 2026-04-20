@@ -76,6 +76,7 @@ Real-time database updates
 👩‍💻 Developed By
 
 Anusha Manohar – Frontend, Data Cleaning, Integration, Admin Features
+
 Umm E Romaan Shaikh – Database Design, API Development, ML Model, Backend
 
 Internship Project at MGrid Technologies Pvt Ltd
